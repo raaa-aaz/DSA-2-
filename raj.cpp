@@ -16,7 +16,7 @@ int sumdigits (int n) {
     return n%10+sumdigits (n/10);
 }
 int countdigits (int n) {
-    if (n<0) return 1;
+    if (n==0) return 1;
     return 1+countdigits (n/10);
 }
 int factorial(int n) {
@@ -32,8 +32,8 @@ int fibonacci (int n) {
     return fibonacci (n-1)+fibonacci (n-2);
 }
 int power (int n, int p) {
-    if (n==0) return 1;
-    return n*power (n-1, p);
+    if (p==0) return 1;
+    return n*power (n, p-1);
 }
 void printarray (int arr[],int index, int n) {
     if (index==n)
@@ -126,13 +126,14 @@ int main () {
             break;
 
         case 8 :
-            printarray(arr,size,n);
+            printarray(arr,0,size);
             break;
         case 9 :
-            cout <<"largest = "<<largest(arr,size,0)<<endl;
+
+            cout <<"largest = "<<largest(arr,0,size)<<endl;
             break;
         case 10 :
-            cout <<"smallest = "<<smallest(arr,size,0)<<endl;
+            cout <<"smallest = "<<smallest(arr,0,size)<<endl;
             break;
         default :
             cout <<"Invalid choice"<<endl;
